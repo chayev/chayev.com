@@ -1,0 +1,16 @@
+<footer class="site-footer">
+  <div class="footer-container">
+    <p>&copy; {{ now.Year }} {{ .Site.Params.author }}. All rights reserved.</p>
+    <div class="footer-social">
+      {{ with .Site.Params.linkedin }}
+        <a href="https://linkedin.com/in/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+      {{ end }}
+      {{ with .Site.Params.github }}
+        <a href="https://github.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+      {{ end }}
+      {{ with .Site.Params.twitter }}
+        <a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter">Twitter</a>
+      {{ end }}
+    </div>
+  </div>
+</footer>

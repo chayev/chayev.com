@@ -1,0 +1,35 @@
+{{ define "main" }}
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">{{ .Title }}</h1>
+    <p class="hero-subtitle">{{ .Params.hero_subtitle | default "Author & Tech Leader" }}</p>
+    <div class="hero-hook">
+      <p>{{ .Params.hero_hook | default "Welcome to my space where literature meets technology." }}</p>
+    </div>
+    <div class="hero-actions">
+      <a href="/memoir/" class="btn btn-primary">About the Memoir</a>
+      <a href="/about/" class="btn btn-secondary">Read My Story</a>
+    </div>
+  </div>
+</section>
+
+<section class="memoir-teaser-section">
+  <div class="section-container">
+    <h2 class="section-title">{{ .Params.memoir_title | default "Featured: The Upcoming Memoir" }}</h2>
+    <div class="memoir-teaser-content">
+      {{ .Params.memoir_teaser | markdownify }}
+    </div>
+  </div>
+</section>
+
+<section class="newsletter-section">
+  <div class="section-container text-center">
+    <h2 class="section-title">Stay Updated</h2>
+    <p class="newsletter-hook">{{ .Params.newsletter_hook | default "Sign up to receive updates on pre-orders, new essays, and progress on the upcoming memoir." }}</p>
+    <form action="#" class="newsletter-form" id="newsletter-form">
+      <input type="email" placeholder="Your email address" required aria-label="Email address">
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,23 @@
+{{ define "main" }}
+<article class="about-page">
+  <header class="page-header">
+    <h1 class="page-title">{{ .Title }}</h1>
+  </header>
+  
+  <div class="dual-narrative-container">
+    <section class="narrative-column professional-column">
+      <h2 class="column-title">{{ .Params.professional_title | default "Professional Summary" }}</h2>
+      <div class="column-content">
+        {{ .Params.professional_summary | markdownify }}
+      </div>
+    </section>
+    
+    <section class="narrative-column personal-column">
+      <h2 class="column-title">{{ .Params.personal_title | default "Personal Story" }}</h2>
+      <div class="column-content">
+        {{ .Params.personal_story | markdownify }}
+      </div>
+    </section>
+  </div>
+</article>
+{{ end }}

@@ -1,0 +1,33 @@
+{{ define "main" }}
+<article class="memoir-page">
+  <header class="page-header text-center">
+    <h1 class="page-title">{{ .Title }}</h1>
+    <p class="subtitle">An Upcoming Memoir by {{ .Site.Params.author }}</p>
+  </header>
+  
+  <div class="memoir-grid">
+    <div class="synopsis-section">
+      <h2 class="section-title">{{ .Params.synopsis_title | default "Synopsis" }}</h2>
+      <div class="synopsis-content">
+        {{ .Params.synopsis | markdownify }}
+      </div>
+    </div>
+    
+    <div class="excerpt-section">
+      <h2 class="section-title">{{ .Params.excerpt_title | default "Excerpt" }}</h2>
+      <div class="excerpt-content">
+        {{ .Params.excerpt | markdownify }}
+      </div>
+    </div>
+  </div>
+  
+  <div class="preorder-section text-center">
+    <h3 class="preorder-title">Pre-order Status</h3>
+    <p>{{ .Params.preorder_hook | default "Sign up to be notified when pre-orders open." }}</p>
+    <div class="preorder-buttons">
+      <button class="btn btn-primary disabled" disabled>Pre-order on Amazon (Coming Soon)</button>
+      <button class="btn btn-secondary disabled" disabled>Pre-order on Barnes & Noble (Coming Soon)</button>
+    </div>
+  </div>
+</article>
+{{ end }}

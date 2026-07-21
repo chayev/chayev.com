@@ -1,0 +1,19 @@
+baseURL = "https://www.chayev.com/"
+languageCode = "en"
+title = "Chayev"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  author = "Michael Ibragimchayev"
+  description = "Michael Ibragimchayev's personal website and author platform for his upcoming memoir."
+  
+  # Social Links
+  linkedin = "chayev"
+  github = "chayev"
+  twitter = "chayev"

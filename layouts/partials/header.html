@@ -1,0 +1,33 @@
+<header class="site-header">
+  <div class="header-container">
+    <div class="logo">
+      <a href="/">{{ .Site.Title }}</a>
+    </div>
+    <nav class="nav-menu" id="nav-menu">
+      <a href="/" class="nav-link{{ if .IsHome }} active{{ end }}">Home</a>
+      <a href="/about/" class="nav-link{{ if eq .Section "about" }} active{{ end }}">About</a>
+      <a href="/memoir/" class="nav-link{{ if eq .Section "memoir" }} active{{ end }}">Memoir</a>
+      <a href="/blog/" class="nav-link{{ if eq .Section "blog" }} active{{ end }}">Essays & Blog</a>
+      <a href="/contact/" class="nav-link{{ if eq .Section "contact" }} active{{ end }}">Contact</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        menuToggle.classList.toggle('active');
+      });
+    }
+  });
+</script>
