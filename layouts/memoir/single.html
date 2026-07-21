@@ -1,11 +1,30 @@
 {{ define "main" }}
 <article class="memoir-page">
-  <header class="page-header text-center">
-    <h1 class="page-title">{{ .Title }}</h1>
-    <p class="subtitle">An Upcoming Memoir by {{ .Site.Params.author }}</p>
-  </header>
+  <!-- Memoir Hero Grid -->
+  <div class="memoir-hero">
+    <div class="book-cover-container">
+      <div class="book-cover-wrapper">
+        <img class="book-cover-img" src="{{ "images/memoir_cover.jpg" | relURL }}" alt="The Architecture of an Unoptimized Life - Book Cover">
+      </div>
+    </div>
+    <div class="memoir-meta">
+      <span class="memoir-tagline">Upcoming Memoir</span>
+      <h1 class="memoir-book-title">The Architecture of an Unoptimized Life</h1>
+      <p class="memoir-book-author">by {{ .Site.Params.author }}</p>
+      
+      <div class="memoir-hero-teaser">
+        <p>A narrative chronicling surviving childhood in Queens, navigating the high-speed tech world, and locating personal identity when the ground keeps shifting.</p>
+      </div>
+      
+      <div class="hero-actions">
+        <a href="#synopsis" class="btn btn-secondary">Read Synopsis</a>
+        <a href="#preorder" class="btn btn-primary">Pre-order Status</a>
+      </div>
+    </div>
+  </div>
   
-  <div class="memoir-grid">
+  <!-- Memoir Content Grid -->
+  <div class="memoir-grid" id="synopsis">
     <div class="synopsis-section">
       <h2 class="section-title">{{ .Params.synopsis_title | default "Synopsis" }}</h2>
       <div class="synopsis-content">
@@ -14,14 +33,15 @@
     </div>
     
     <div class="excerpt-section">
-      <h2 class="section-title">{{ .Params.excerpt_title | default "Excerpt" }}</h2>
+      <h2 class="section-title">{{ .Params.excerpt_title | default "Featured Excerpt" }}</h2>
       <div class="excerpt-content">
         {{ .Params.excerpt | markdownify }}
       </div>
     </div>
   </div>
   
-  <div class="preorder-section text-center">
+  <!-- Pre-order Card -->
+  <div class="preorder-section" id="preorder">
     <h3 class="preorder-title">Pre-order Status</h3>
     <p>{{ .Params.preorder_hook | default "Sign up to be notified when pre-orders open." }}</p>
     <div class="preorder-buttons">
