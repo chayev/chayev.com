@@ -1,5 +1,6 @@
 ---
 title: "The Memoir"
+type: "memoir"
 layout: "single"
 synopsis_title: "Synopsis"
 synopsis: |

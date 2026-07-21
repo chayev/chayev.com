@@ -60,6 +60,8 @@ collections:
         name: "about"
         fields:
           - { label: "Title", name: "title", widget: "string" }
+          - { label: "Type", name: "type", widget: "hidden", default: "about" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "single" }
           - { label: "Professional Summary Title", name: "professional_title", widget: "string" }
           - { label: "Professional Summary Content", name: "professional_summary", widget: "markdown" }
           - { label: "Personal Story Title", name: "personal_title", widget: "string" }
@@ -70,6 +72,8 @@ collections:
         name: "memoir"
         fields:
           - { label: "Title", name: "title", widget: "string" }
+          - { label: "Type", name: "type", widget: "hidden", default: "memoir" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "single" }
           - { label: "Book Synopsis Title", name: "synopsis_title", widget: "string" }
           - { label: "Synopsis Content", name: "synopsis", widget: "markdown" }
           - { label: "Excerpt Title", name: "excerpt_title", widget: "string" }

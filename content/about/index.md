@@ -1,5 +1,6 @@
 ---
 title: "About Me"
+type: "about"
 layout: "single"
 professional_title: "Professional Summary"
 professional_summary: |
