@@ -1,0 +1,55 @@
+backend:
+  name: github
+  repo: chayev/chayev.com
+  branch: main
+  site_domain: www.chayev.com
+
+media_folder: "static/images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/_index.md"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string" }
+          - { label: "Hero Hook", name: "hero_hook", widget: "text" }
+          - { label: "Memoir Title", name: "memoir_title", widget: "string" }
+          - { label: "Memoir Teaser Text", name: "memoir_teaser", widget: "markdown" }
+          - { label: "Newsletter Hook", name: "newsletter_hook", widget: "string" }
+
+      - file: "content/about/index.md"
+        label: "About Page"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Professional Summary Title", name: "professional_title", widget: "string" }
+          - { label: "Professional Summary Content", name: "professional_summary", widget: "markdown" }
+          - { label: "Personal Story Title", name: "personal_title", widget: "string" }
+          - { label: "Personal Story Content", name: "personal_story", widget: "markdown" }
+
+      - file: "content/memoir/index.md"
+        label: "Memoir Page"
+        name: "memoir"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Book Synopsis Title", name: "synopsis_title", widget: "string" }
+          - { label: "Synopsis Content", name: "synopsis", widget: "markdown" }
+          - { label: "Excerpt Title", name: "excerpt_title", widget: "string" }
+          - { label: "Excerpt Content", name: "excerpt", widget: "markdown" }
+          - { label: "Pre-order Hook", name: "preorder_hook", widget: "string" }
