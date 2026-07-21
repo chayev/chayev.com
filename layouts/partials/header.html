@@ -1,14 +1,14 @@
 <header class="site-header">
   <div class="header-container">
     <div class="logo">
-      <a href="/">{{ .Site.Title }}</a>
+      <a href="{{ "" | relURL }}/">{{ .Site.Title }}</a>
     </div>
     <nav class="nav-menu" id="nav-menu">
-      <a href="/" class="nav-link{{ if .IsHome }} active{{ end }}">Home</a>
-      <a href="/about/" class="nav-link{{ if eq .Section "about" }} active{{ end }}">About</a>
-      <a href="/memoir/" class="nav-link{{ if eq .Section "memoir" }} active{{ end }}">Memoir</a>
-      <a href="/blog/" class="nav-link{{ if eq .Section "blog" }} active{{ end }}">Essays & Blog</a>
-      <a href="/contact/" class="nav-link{{ if eq .Section "contact" }} active{{ end }}">Contact</a>
+      <a href="{{ "" | relURL }}/" class="nav-link{{ if .IsHome }} active{{ end }}">Home</a>
+      <a href="{{ "about/" | relURL }}" class="nav-link{{ if eq .Section "about" }} active{{ end }}">About</a>
+      <a href="{{ "memoir/" | relURL }}" class="nav-link{{ if eq .Section "memoir" }} active{{ end }}">Memoir</a>
+      <a href="{{ "blog/" | relURL }}" class="nav-link{{ if eq .Section "blog" }} active{{ end }}">Essays & Blog</a>
+      <a href="{{ "contact/" | relURL }}" class="nav-link{{ if eq .Section "contact" }} active{{ end }}">Contact</a>
     </nav>
     <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
       <span></span>
