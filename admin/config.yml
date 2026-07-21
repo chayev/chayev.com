@@ -2,6 +2,7 @@ backend:
   name: github
   repo: chayev/chayev.com
   branch: main
+  base_url: https://oauth.decapcms.org
   site_domain: www.chayev.com
 
 media_folder: "static/images"
