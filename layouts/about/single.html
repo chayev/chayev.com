@@ -4,20 +4,87 @@
     <h1 class="page-title">{{ .Title }}</h1>
   </header>
   
-  <div class="dual-narrative-container">
-    <section class="narrative-column professional-column">
-      <h2 class="column-title">{{ .Params.professional_title | default "Professional Summary" }}</h2>
+  <!-- Interactive Mobile Toggle -->
+  <div class="about-toggle-container">
+    <button class="toggle-btn active active-engineer" id="toggle-engineer">Engineer</button>
+    <button class="toggle-btn" id="toggle-author">Author</button>
+  </div>
+  
+  <!-- Interactive Desktop Split -->
+  <div class="dual-narrative-split show-engineer" id="about-split">
+    <!-- Left Column: Engineer -->
+    <div class="narrative-side engineer-side" id="side-engineer">
+      <h2>📟 {{ .Params.professional_title | default "Professional Summary" }}</h2>
       <div class="column-content">
         {{ .Params.professional_summary | markdownify }}
       </div>
-    </section>
+      
+      <div class="tech-skills-grid">
+        <span class="skill-pill">SaaS Integration</span>
+        <span class="skill-pill">API Architectures</span>
+        <span class="skill-pill">SQL Database Systems</span>
+        <span class="skill-pill">AppsFlyer AdTech</span>
+        <span class="skill-pill">Google Analytics Solutions</span>
+        <span class="skill-pill">Chayev LLC Consulting</span>
+      </div>
+    </div>
     
-    <section class="narrative-column personal-column">
-      <h2 class="column-title">{{ .Params.personal_title | default "Personal Story" }}</h2>
+    <!-- Right Column: Author -->
+    <div class="narrative-side author-side" id="side-author">
+      <h2>🖋️ {{ .Params.personal_title | default "Personal Story" }}</h2>
       <div class="column-content">
         {{ .Params.personal_story | markdownify }}
       </div>
-    </section>
+      
+      <ul class="author-themes-list">
+        <li class="author-theme-item">Surviving childhood in Queens</li>
+        <li class="author-theme-item">Navigating the high-speed tech world</li>
+        <li class="author-theme-item">Finding personal belonging and identity</li>
+        <li class="author-theme-item">Theme of resilience and adaptation</li>
+      </ul>
+    </div>
   </div>
 </article>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const splitContainer = document.getElementById('about-split');
+    const sideEngineer = document.getElementById('side-engineer');
+    const sideAuthor = document.getElementById('side-author');
+    const btnEngineer = document.getElementById('toggle-engineer');
+    const btnAuthor = document.getElementById('toggle-author');
+    
+    // Desktop Hover Focus Logic
+    const sides = [sideEngineer, sideAuthor];
+    sides.forEach(side => {
+      if (side) {
+        side.addEventListener('mouseenter', () => {
+          splitContainer.classList.add('hover-active');
+          side.classList.add('is-hovered');
+        });
+        side.addEventListener('mouseleave', () => {
+          splitContainer.classList.remove('hover-active');
+          side.classList.remove('is-hovered');
+        });
+      }
+    });
+    
+    // Mobile Toggle Logic
+    if (btnEngineer && btnAuthor && splitContainer) {
+      btnEngineer.addEventListener('click', () => {
+        splitContainer.classList.remove('show-author');
+        splitContainer.classList.add('show-engineer');
+        btnAuthor.classList.remove('active', 'active-author');
+        btnEngineer.classList.add('active', 'active-engineer');
+      });
+      
+      btnAuthor.addEventListener('click', () => {
+        splitContainer.classList.remove('show-engineer');
+        splitContainer.classList.add('show-author');
+        btnEngineer.classList.remove('active', 'active-engineer');
+        btnAuthor.classList.add('active', 'active-author');
+      });
+    }
+  });
+</script>
 {{ end }}

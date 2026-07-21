@@ -1,35 +1,108 @@
 {{ define "main" }}
+<!-- Hero Section -->
 <section class="hero-section">
   <div class="hero-content">
-    <h1 class="hero-title">{{ .Title }}</h1>
-    <p class="hero-subtitle">{{ .Params.hero_subtitle | default "Author & Tech Leader" }}</p>
+    <h1 class="hero-title">I build complex enterprise systems. <span>Now, I'm writing about the chaos behind them.</span></h1>
     <div class="hero-hook">
-      <p>{{ .Params.hero_hook | default "Welcome to my space where literature meets technology." }}</p>
+      <p>{{ .Params.hero_hook | default "Welcome. I am Michael Ibragimchayev—a product-driven customer sukses leader, founder of Chayev LLC, and memoirist chronicling the intersection of technology and human stories." }}</p>
     </div>
     <div class="hero-actions">
-      <a href="{{ "memoir/" | relURL }}" class="btn btn-primary">About the Memoir</a>
-      <a href="{{ "about/" | relURL }}" class="btn btn-secondary">Read My Story</a>
+      <a href="{{ "memoir/" | relURL }}" class="btn btn-primary">Read Memoir Excerpt</a>
+      <a href="{{ "about/" | relURL }}" class="btn btn-secondary">My Journey</a>
     </div>
   </div>
 </section>
 
-<section class="memoir-teaser-section">
-  <div class="section-container">
-    <h2 class="section-title">{{ .Params.memoir_title | default "Featured: The Upcoming Memoir" }}</h2>
-    <div class="memoir-teaser-content">
-      {{ .Params.memoir_teaser | markdownify }}
+<!-- The Journey (Scrollytelling Timeline) -->
+<section class="journey-section">
+  <span class="section-label">Narrative Flow</span>
+  <h2 class="section-heading">The Journey</h2>
+  
+  <div class="timeline">
+    <!-- Item 1 -->
+    <div class="timeline-item scroll-reveal">
+      <div class="timeline-marker"></div>
+      <span class="timeline-date">Roots</span>
+      <div class="timeline-content">
+        <h3 class="timeline-title">Queens, New York</h3>
+        <p>Growing up as an immigrant in one of the most culturally diverse boroughs in the world. Early lessons in adaptability, observations of human character, and the foundation of a story of resilience.</p>
+      </div>
+    </div>
+    
+    <!-- Item 2 -->
+    <div class="timeline-item scroll-reveal">
+      <div class="timeline-marker"></div>
+      <span class="timeline-date">Code</span>
+      <div class="timeline-content">
+        <h3 class="timeline-title">Enterprise Tech & SaaS</h3>
+        <p>Stepping into the high-pressure world of software integration. Deploying SaaS architectures and AdTech solutions for Fortune 500 companies. Bridging engineering structures and customer solutions.</p>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="timeline-item scroll-reveal">
+      <div class="timeline-marker"></div>
+      <span class="timeline-date">Ownership</span>
+      <div class="timeline-content">
+        <h3 class="timeline-title">Chayev LLC</h3>
+        <p>Founding a technology consulting consultancy to direct integrations, lead enterprise implementations, and maximize customer success lifecycle workflows.</p>
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="timeline-item scroll-reveal">
+      <div class="timeline-marker"></div>
+      <span class="timeline-date">Prose</span>
+      <div class="timeline-content">
+        <h3 class="timeline-title">The Upcoming Memoir</h3>
+        <p>Moving from system architectures to the architecture of narrative. Crafting a personal story about displacement, tech-industry velocity, and finding belonging.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="newsletter-section">
-  <div class="section-container text-center">
-    <h2 class="section-title">Stay Updated</h2>
-    <p class="newsletter-hook">{{ .Params.newsletter_hook | default "Sign up to receive updates on pre-orders, new essays, and progress on the upcoming memoir." }}</p>
-    <form action="#" class="newsletter-form" id="newsletter-form">
-      <input type="email" placeholder="Your email address" required aria-label="Email address">
-      <button type="submit" class="btn btn-primary">Subscribe</button>
-    </form>
+<!-- Featured Work (Split Teasers) -->
+<section class="featured-section">
+  <span class="section-label">Work & Words</span>
+  <h2 class="section-heading">Featured Projects</h2>
+  
+  <div class="featured-grid">
+    <!-- Card 1: Technical Projects -->
+    <div class="featured-card tech-card scroll-reveal">
+      <span class="card-category">Engineering</span>
+      <h3 class="card-title">Technical Projects</h3>
+      <p class="card-description">Open-source tools, CRM utilities, and automation workflows created to solve complex implementation challenges.</p>
+      
+      <div class="project-tags">
+        <span class="tag">yURL Link Shortener</span>
+        <span class="tag">Ping CRM</span>
+        <span class="tag">n8n Automation</span>
+        <span class="tag">SQL & APIs</span>
+      </div>
+      
+      <a href="{{ "contact/" | relURL }}" class="read-more-link">Inquire about Consulting &rarr;</a>
+    </div>
+    
+    <!-- Card 2: Upcoming Memoir -->
+    <div class="featured-card memoir-card scroll-reveal">
+      <span class="card-category">Literature</span>
+      <h3 class="card-title">The Upcoming Memoir</h3>
+      <p class="card-description">
+        {{ .Params.memoir_teaser | default "An intimate exploration of surviving childhood in Queens, navigating the high-speed tech world, and locating personal identity when the ground keeps moving." }}
+      </p>
+      <a href="{{ "memoir/" | relURL }}" class="read-more-link">Read Excerpts & Synopsis &rarr;</a>
+    </div>
   </div>
+</section>
+
+<!-- Newsletter CTA -->
+<section class="newsletter-section scroll-reveal">
+  <span class="section-label">Newsletter</span>
+  <h2 class="section-heading">Stay in the Loop</h2>
+  <p class="newsletter-hook">{{ .Params.newsletter_hook | default "Receive occasional reflections on tech integrations, system design, and updates on memoir pre-order releases." }}</p>
+  <form action="#" class="newsletter-form" id="newsletter-form">
+    <input type="email" placeholder="Your email address" required aria-label="Email address">
+    <button type="submit" class="btn btn-primary">Subscribe</button>
+  </form>
 </section>
 {{ end }}
