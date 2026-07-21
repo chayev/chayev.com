@@ -21,9 +21,5 @@ personal_story: >-
   personal growth.
 
 
-  His writing explores the themes of cultural displacement, overcoming childhood adversity, and defining identity in a fast-paced, digital world.\
-
-  \
-
-  test
+  His writing explores the themes of cultural displacement, overcoming childhood adversity, and defining identity in a fast-paced, digital world.
 ---
